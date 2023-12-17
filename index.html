@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Grade Calculator</title>
     <style>
@@ -7,63 +8,72 @@
         body {
             font-family: Arial, sans-serif;
         }
+
         label {
             display: block;
             margin-top: 10px;
         }
     </style>
 </head>
+
 <body>
     <h1>Grade Calculator</h1>
     <form id="gradeForm">
-        <label for="adp">ADP:</label>
-        <input type="radio" name="adp" value="O"> O
-        <input type="radio" name="adp" value="A+"> A+
-        <input type="radio" name="adp" value="A"> A
-        <input type="radio" name="adp" value="B+"> B+
-        <input type="radio" name="adp" value="B"> B
+        <label for="linearAlgebra">Linear Algebra:</label>
+        <input type="radio" name="linearAlgebra" value="O"> O
+        <input type="radio" name="linearAlgebra" value="A+"> A+
+        <input type="radio" name="linearAlgebra" value="A"> A
+        <input type="radio" name="linearAlgebra" value="B+"> B+
+        <input type="radio" name="linearAlgebra" value="B"> B
 
-        <label for="pdsc">PDSC:</label>
-        <input type="radio" name="pdsc" value="O"> O
-        <input type="radio" name="pdsc" value="A+"> A+
-        <input type="radio" name="pdsc" value="A"> A
-        <input type="radio" name="pdsc" value="B+"> B+
-        <input type="radio" name="pdsc" value="B"> B
+        <label for="adsa">ADSA:</label>
+        <input type="radio" name="adsa" value="O"> O
+        <input type="radio" name="adsa" value="A+"> A+
+        <input type="radio" name="adsa" value="A"> A
+        <input type="radio" name="adsa" value="B+"> B+
+        <input type="radio" name="adsa" value="B"> B
 
-        <label for="maths">Maths:</label>
-        <input type="radio" name="maths" value="O"> O
-        <input type="radio" name="maths" value="A+"> A+
-        <input type="radio" name="maths" value="A"> A
-        <input type="radio" name="maths" value="B+"> B+
-        <input type="radio" name="maths" value="B"> B
+        <label for="mdt">MDT:</label>
+        <input type="radio" name="mdt" value="O"> O
+        <input type="radio" name="mdt" value="A+"> A+
+        <input type="radio" name="mdt" value="A"> A
+        <input type="radio" name="mdt" value="B+"> B+
+        <input type="radio" name="mdt" value="B"> B
 
-        <label for="english">English:</label>
-        <input type="radio" name="english" value="O"> O
-        <input type="radio" name="english" value="A+"> A+
-        <input type="radio" name="english" value="A"> A
-        <input type="radio" name="english" value="B+"> B+
-        <input type="radio" name="english" value="B"> B
+        <label for="WT">WT:</label>
+        <input type="radio" name="WT" value="O"> O
+        <input type="radio" name="WT" value="A+"> A+
+        <input type="radio" name="WT" value="A"> A
+        <input type="radio" name="WT" value="B+"> B+
+        <input type="radio" name="WT" value="B"> B
 
-        <label for="dpco">DPCO:</label>
-        <input type="radio" name="dpco" value="O"> O
-        <input type="radio" name="dpco" value="A+"> A+
-        <input type="radio" name="dpco" value="A"> A
-        <input type="radio" name="dpco" value="B+"> B+
-        <input type="radio" name="dpco" value="B"> B
+        <label for="corePaper">Core Paper:</label>
+        <input type="radio" name="corePaper" value="O"> O
+        <input type="radio" name="corePaper" value="A+"> A+
+        <input type="radio" name="corePaper" value="A"> A
+        <input type="radio" name="corePaper" value="B+"> B+
+        <input type="radio" name="corePaper" value="B"> B
 
-        <label for="engGraphics">Engineering Graphics:</label>
-        <input type="radio" name="engGraphics" value="O"> O
-        <input type="radio" name="engGraphics" value="A+"> A+
-        <input type="radio" name="engGraphics" value="A"> A
-        <input type="radio" name="engGraphics" value="B+"> B+
-        <input type="radio" name="engGraphics" value="B"> B
+        <label for="ajp">AJP:</label>
+        <input type="radio" name="ajp" value="O"> O
+        <input type="radio" name="ajp" value="A+"> A+
+        <input type="radio" name="ajp" value="A"> A
+        <input type="radio" name="ajp" value="B+"> B+
+        <input type="radio" name="ajp" value="B"> B
 
-        <label for="apt">APT:</label>
-        <input type="radio" name="apt" value="O"> O
-        <input type="radio" name="apt" value="A+"> A+
-        <input type="radio" name="apt" value="A"> A
-        <input type="radio" name="apt" value="B+"> B+
-        <input type="radio" name="apt" value="B"> B
+        <label for="ees">Employability Enhancement Skills:</label>
+        <input type="radio" name="ees" value="O"> O
+        <input type="radio" name="ees" value="A+"> A+
+        <input type="radio" name="ees" value="A"> A
+        <input type="radio" name="ees" value="B+"> B+
+        <input type="radio" name="ees" value="B"> B
+
+        <label for="tamil">Tamil:</label>
+        <input type="radio" name="tamil" value="O"> O
+        <input type="radio" name="tamil" value="A+"> A+
+        <input type="radio" name="tamil" value="A"> A
+        <input type="radio" name="tamil" value="B+"> B+
+        <input type="radio" name="tamil" value="B"> B
 
         <button type="button" onclick="calculateScore()">Calculate Score</button>
     </form>
@@ -90,17 +100,18 @@
 
         function calculateScore() {
             const credits = {
-                'adp': 4,
-                'pdsc': 3,
-                'maths': 4,
-                'english': 3,
-                'dpco': 3,
-                'engGraphics': 2,
-                'apt': 1,
+                'linearAlgebra': 4,
+                'adsa': 4,
+                'mdt': 4,
+                'WT': 4,
+                'corePaper': 3,
+                'ajp': 4,
+                'ees': 1,
+                'tamil': 1,
             };
 
             let total_score = 0;
-            const subjects = ['adp', 'pdsc', 'maths', 'english', 'dpco', 'engGraphics', 'apt'];
+            const subjects = ['linearAlgebra', 'adsa', 'mdt', 'WT', 'corePaper', 'ajp', 'ees', 'tamil'];
 
             subjects.forEach((subject) => {
                 const selectedGrade = document.querySelector(`input[name=${subject}]:checked`);
@@ -109,9 +120,10 @@
                 }
             });
 
-            const final_score = total_score / 20; // 20 is the total credits for the given subjects
+            const final_score = total_score / 25; // 20 is the total credits for the given subjects
             document.getElementById('result').innerText = `Final score: ${final_score.toFixed(2)}`;
         }
     </script>
 </body>
+
 </html>
