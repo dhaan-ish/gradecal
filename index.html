@@ -1,152 +1,163 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Grade Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-
-        button {
-            margin-top: 10px;
-        }
-
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .subject {
+      margin: 10px 0;
+    }
+    .subject label {
+      font-weight: bold;
+    }
+    .grade-options {
+      margin: 5px 0;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="container">
-    <h1>Grade Calculator</h1>
-    <form id="gradeForm">
-        <label for="dm">dm:</label>
-        <input type="radio" name="dm" value="O"> O
-        <input type="radio" name="dm" value="A+"> A+
-        <input type="radio" name="dm" value="A"> A
-        <input type="radio" name="dm" value="B+"> B+
-        <input type="radio" name="dm" value="B"> B
-
-        <label for="os">os:</label>
-        <input type="radio" name="os" value="O"> O
-        <input type="radio" name="os" value="A+"> A+
-        <input type="radio" name="os" value="A"> A
-        <input type="radio" name="os" value="B+"> B+
-        <input type="radio" name="os" value="B"> B
-
-        <label for="ml">ml:</label>
-        <input type="radio" name="ml" value="O"> O
-        <input type="radio" name="ml" value="A+"> A+
-        <input type="radio" name="ml" value="A"> A
-        <input type="radio" name="ml" value="B+"> B+
-        <input type="radio" name="ml" value="B"> B
-
-        <label for="cn">cn:</label>
-        <input type="radio" name="cn" value="O"> O
-        <input type="radio" name="cn" value="A+"> A+
-        <input type="radio" name="cn" value="A"> A
-        <input type="radio" name="cn" value="B+"> B+
-        <input type="radio" name="cn" value="B"> B
-
-        <label for="wf">wf:</label>
-        <input type="radio" name="wf" value="O"> O
-        <input type="radio" name="wf" value="A+"> A+
-        <input type="radio" name="wf" value="A"> A
-        <input type="radio" name="wf" value="B+"> B+
-        <input type="radio" name="wf" value="B"> B
-
-        <label for="ai">ai:</label>
-        <input type="radio" name="ai" value="O"> O
-        <input type="radio" name="ai" value="A+"> A+
-        <input type="radio" name="ai" value="A"> A
-        <input type="radio" name="ai" value="B+"> B+
-        <input type="radio" name="ai" value="B"> B
-
-        <label for="ees">Employability Enhancement Skills:</label>
-        <input type="radio" name="ees" value="O"> O
-        <input type="radio" name="ees" value="A+"> A+
-        <input type="radio" name="ees" value="A"> A
-        <input type="radio" name="ees" value="B+"> B+
-        <input type="radio" name="ees" value="B"> B
-
-        <label for="tamil">Tamil:</label>
-        <input type="radio" name="tamil" value="O"> O
-        <input type="radio" name="tamil" value="A+"> A+
-        <input type="radio" name="tamil" value="A"> A
-        <input type="radio" name="tamil" value="B+"> B+
-        <input type="radio" name="tamil" value="B"> B
-        <br>
-        <button type="button" onclick="calculateScore()">Calculate Score</button>
-        </form>
-        <div id="result"></div>
+  <h1>Grade Calculator</h1>
+  <form id="gradeForm">
+    <!-- Theory Subjects -->
+    <div class="subject">
+      <label for="AD2501">Computing Theory and Compiler Design (3 Credits)</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2501" value="10"> O 
+        <input type="radio" name="AD2501" value="9"> A+ 
+        <input type="radio" name="AD2501" value="8"> A 
+        <input type="radio" name="AD2501" value="7"> B+ 
+        <input type="radio" name="AD2501" value="6"> B 
+      </div>
+    </div>
+    <div class="subject">
+      <label for="AD2502">Natural Language Processing (3 Credits)</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2502" value="10"> O 
+        <input type="radio" name="AD2502" value="9"> A+ 
+        <input type="radio" name="AD2502" value="8"> A 
+        <input type="radio" name="AD2502" value="7"> B+ 
+        <input type="radio" name="AD2502" value="6"> B 
+      </div>
     </div>
 
-    <script>
-        // JavaScript code for the calculation
-        function getGradePoints(grade) {
-            switch (grade.toUpperCase()) {
-                case 'O':
-                    return 10;
-                case 'A+':
-                    return 9;
-                case 'A':
-                    return 8;
-                case 'B+':
-                    return 7;
-                case 'B':
-                    return 6;
-                default:
-                    return 0;
-            }
+    <!-- Practical Subjects -->
+    <div class="subject">
+      <label for="AD2503">Big Data Analytics (4 Credits)</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2503" value="10"> O 
+        <input type="radio" name="AD2503" value="9"> A+ 
+        <input type="radio" name="AD2503" value="8"> A 
+        <input type="radio" name="AD2503" value="7"> B+ 
+        <input type="radio" name="AD2503" value="6"> B 
+      </div>
+    </div>
+    <div class="subject">
+      <label for="AD2504">Deep Learning (4 Credits)</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2504" value="10"> O 
+        <input type="radio" name="AD2504" value="9"> A+ 
+        <input type="radio" name="AD2504" value="8"> A 
+        <input type="radio" name="AD2504" value="7"> B+ 
+        <input type="radio" name="AD2504" value="6"> B 
+      </div>
+    </div>
+
+    <!-- Electives -->
+    <div class="subject">
+      <label for="Elective1">Elective I - DevOps (3 Credits)</label>
+      <div class="grade-options">
+        <input type="radio" name="Elective1" value="10"> O 
+        <input type="radio" name="Elective1" value="9"> A+ 
+        <input type="radio" name="Elective1" value="8"> A 
+        <input type="radio" name="Elective1" value="7"> B+ 
+        <input type="radio" name="Elective1" value="6"> B 
+      </div>
+    </div>
+    <div class="subject">
+      <label for="Elective2">Elective II - UI and UX (3 Credits)</label>
+      <div class="grade-options">
+        <input type="radio" name="Elective2" value="10"> O 
+        <input type="radio" name="Elective2" value="9"> A+ 
+        <input type="radio" name="Elective2" value="8"> A 
+        <input type="radio" name="Elective2" value="7"> B+ 
+        <input type="radio" name="Elective2" value="6"> B 
+      </div>
+    </div>
+    <div class="subject">
+      <label for="Elective3">Elective III - CIS (3 Credits)</label>
+      <div class="grade-options">
+        <input type="radio" name="Elective3" value="10"> O 
+        <input type="radio" name="Elective3" value="9"> A+ 
+        <input type="radio" name="Elective3" value="8"> A 
+        <input type="radio" name="Elective3" value="7"> B+ 
+        <input type="radio" name="Elective3" value="6"> B 
+      </div>
+    </div>
+
+    <!-- Practical -->
+    <div class="subject">
+      <label for="ES2501">Employability Enhancement Skills-V (1 Credit)</label>
+      <div class="grade-options">
+        <input type="radio" name="ES2501" value="10"> O 
+        <input type="radio" name="ES2501" value="9"> A+ 
+        <input type="radio" name="ES2501" value="8"> A 
+        <input type="radio" name="ES2501" value="7"> B+ 
+        <input type="radio" name="ES2501" value="6"> B 
+      </div>
+    </div>
+    <div class="subject">
+      <label for="AD2505">Core Course Project-III (1 Credit)</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2505" value="10"> O 
+        <input type="radio" name="AD2505" value="9"> A+ 
+        <input type="radio" name="AD2505" value="8"> A 
+        <input type="radio" name="AD2505" value="7"> B+ 
+        <input type="radio" name="AD2505" value="6"> B 
+      </div>
+    </div>
+
+    <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculateGPA() {
+      const subjects = {
+        AD2501: 3, AD2502: 3, AD2503: 4, AD2504: 4,
+        Elective1: 3, Elective2: 3, Elective3: 3,
+        ES2501: 1, AD2505: 1
+      };
+      let totalCredits = 0;
+      let totalGradePoints = 0;
+
+      for (let subject in subjects) {
+        const grade = document.querySelector(`input[name="${subject}"]:checked`);
+        if (grade) {
+          totalCredits += subjects[subject];
+          totalGradePoints += parseInt(grade.value) * subjects[subject];
         }
+      }
 
-        function calculateScore() {
-            const credits = {
-                'dm': 3,
-                'os': 4,
-                'ml': 4,
-                'cn': 4,
-                'wf': 4,
-                'ai': 4,
-                'ees': 1,
-                'tamil': 1,
-            };
-
-            let total_score = 0;
-            const subjects = ['dm', 'os', 'ml', 'cn', 'wf', 'ai', 'ees', 'tamil'];
-
-            subjects.forEach((subject) => {
-                const selectedGrade = document.querySelector(`input[name=${subject}]:checked`);
-                if (selectedGrade) {
-                    total_score += getGradePoints(selectedGrade.value) * credits[subject];
-                }
-            });
-
-            const final_score = total_score / 25; // 20 is the total credits for the given subjects
-            document.getElementById('result').innerText = `Final score: ${final_score.toFixed(2)}`;
-        }
-    </script>
+      const gpa = (totalGradePoints / totalCredits).toFixed(2);
+      document.getElementById('result').innerText = `Your GPA is: ${gpa}`;
+    }
+  </script>
 </body>
-
 </html>
