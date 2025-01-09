@@ -3,161 +3,219 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade Calculator</title>
+  <title>CGPA Calculator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
+      margin: 20px;
     }
-    h1 {
-      text-align: center;
+    .semester {
+      margin-bottom: 20px;
     }
-    .subject {
-      margin: 10px 0;
-    }
-    .subject label {
-      font-weight: bold;
-    }
-    .grade-options {
+    .semester h3 {
       margin: 5px 0;
+    }
+    .semester label {
+      margin-right: 10px;
+    }
+    .semester .subject {
+      margin-bottom: 10px;
     }
     .result {
       margin-top: 20px;
-      font-size: 1.2em;
-      font-weight: bold;
-      color: green;
     }
   </style>
 </head>
 <body>
-  <h1>Grade Calculator</h1>
-  <form id="gradeForm">
-    <!-- Theory Subjects -->
-    <div class="subject">
-      <label for="AD2501">Computing Theory and Compiler Design (3 Credits)</label>
-      <div class="grade-options">
-        <input type="radio" name="AD2501" value="10"> O 
-        <input type="radio" name="AD2501" value="9"> A+ 
-        <input type="radio" name="AD2501" value="8"> A 
-        <input type="radio" name="AD2501" value="7"> B+ 
-        <input type="radio" name="AD2501" value="6"> B 
-      </div>
-    </div>
-    <div class="subject">
-      <label for="AD2502">Natural Language Processing (3 Credits)</label>
-      <div class="grade-options">
-        <input type="radio" name="AD2502" value="10"> O 
-        <input type="radio" name="AD2502" value="9"> A+ 
-        <input type="radio" name="AD2502" value="8"> A 
-        <input type="radio" name="AD2502" value="7"> B+ 
-        <input type="radio" name="AD2502" value="6"> B 
-      </div>
-    </div>
 
-    <!-- Practical Subjects -->
-    <div class="subject">
-      <label for="AD2503">Big Data Analytics (4 Credits)</label>
-      <div class="grade-options">
-        <input type="radio" name="AD2503" value="10"> O 
-        <input type="radio" name="AD2503" value="9"> A+ 
-        <input type="radio" name="AD2503" value="8"> A 
-        <input type="radio" name="AD2503" value="7"> B+ 
-        <input type="radio" name="AD2503" value="6"> B 
-      </div>
-    </div>
-    <div class="subject">
-      <label for="AD2504">Deep Learning (4 Credits)</label>
-      <div class="grade-options">
-        <input type="radio" name="AD2504" value="10"> O 
-        <input type="radio" name="AD2504" value="9"> A+ 
-        <input type="radio" name="AD2504" value="8"> A 
-        <input type="radio" name="AD2504" value="7"> B+ 
-        <input type="radio" name="AD2504" value="6"> B 
-      </div>
-    </div>
+  <h1>CGPA Calculator</h1>
 
-    <!-- Electives -->
+  <!-- Semester I -->
+  <div class="semester">
+    <h3>Semester I</h3>
     <div class="subject">
-      <label for="Elective1">Elective I - DevOps (3 Credits)</label>
-      <div class="grade-options">
-        <input type="radio" name="Elective1" value="10"> O 
-        <input type="radio" name="Elective1" value="9"> A+ 
-        <input type="radio" name="Elective1" value="8"> A 
-        <input type="radio" name="Elective1" value="7"> B+ 
-        <input type="radio" name="Elective1" value="6"> B 
-      </div>
+      <label>HS2101 Communicative English - I (3 Credits)</label>
+      <label><input type="radio" name="sem1_sub1" value="10"> O (10)</label>
+      <label><input type="radio" name="sem1_sub1" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem1_sub1" value="8"> A (8)</label>
+      <label><input type="radio" name="sem1_sub1" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem1_sub1" value="6"> B (6)</label>
+      <label><input type="radio" name="sem1_sub1" value="5"> C (5)</label>
     </div>
     <div class="subject">
-      <label for="Elective2">Elective II - UI and UX (3 Credits)</label>
-      <div class="grade-options">
-        <input type="radio" name="Elective2" value="10"> O 
-        <input type="radio" name="Elective2" value="9"> A+ 
-        <input type="radio" name="Elective2" value="8"> A 
-        <input type="radio" name="Elective2" value="7"> B+ 
-        <input type="radio" name="Elective2" value="6"> B 
-      </div>
+      <label>MA2102 Matrices and Calculus (4 Credits)</label>
+      <label><input type="radio" name="sem1_sub2" value="10"> O (10)</label>
+      <label><input type="radio" name="sem1_sub2" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem1_sub2" value="8"> A (8)</label>
+      <label><input type="radio" name="sem1_sub2" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem1_sub2" value="6"> B (6)</label>
+      <label><input type="radio" name="sem1_sub2" value="5"> C (5)</label>
     </div>
     <div class="subject">
-      <label for="Elective3">Elective III - CIS (3 Credits)</label>
-      <div class="grade-options">
-        <input type="radio" name="Elective3" value="10"> O 
-        <input type="radio" name="Elective3" value="9"> A+ 
-        <input type="radio" name="Elective3" value="8"> A 
-        <input type="radio" name="Elective3" value="7"> B+ 
-        <input type="radio" name="Elective3" value="6"> B 
-      </div>
+      <label>PH2103 Engineering Physics (3 Credits)</label>
+      <label><input type="radio" name="sem1_sub3" value="10"> O (10)</label>
+      <label><input type="radio" name="sem1_sub3" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem1_sub3" value="8"> A (8)</label>
+      <label><input type="radio" name="sem1_sub3" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem1_sub3" value="6"> B (6)</label>
+      <label><input type="radio" name="sem1_sub3" value="5"> C (5)</label>
     </div>
+    <div class="subject">
+      <label>CH2104 Engineering Chemistry (3 Credits)</label>
+      <label><input type="radio" name="sem1_sub4" value="10"> O (10)</label>
+      <label><input type="radio" name="sem1_sub4" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem1_sub4" value="8"> A (8)</label>
+      <label><input type="radio" name="sem1_sub4" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem1_sub4" value="6"> B (6)</label>
+      <label><input type="radio" name="sem1_sub4" value="5"> C (5)</label>
+    </div>
+    <div class="subject">
+      <label>AD2105 Problem Solving using Python (3 Credits)</label>
+      <label><input type="radio" name="sem1_sub5" value="10"> O (10)</label>
+      <label><input type="radio" name="sem1_sub5" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem1_sub5" value="8"> A (8)</label>
+      <label><input type="radio" name="sem1_sub5" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem1_sub5" value="6"> B (6)</label>
+      <label><input type="radio" name="sem1_sub5" value="5"> C (5)</label>
+    </div>
+    <div class="subject">
+      <label>ES2106 Employability Enhancement Skills - I (3 Credits)</label>
+      <label><input type="radio" name="sem1_sub6" value="10"> O (10)</label>
+      <label><input type="radio" name="sem1_sub6" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem1_sub6" value="8"> A (8)</label>
+      <label><input type="radio" name="sem1_sub6" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem1_sub6" value="6"> B (6)</label>
+      <label><input type="radio" name="sem1_sub6" value="5"> C (5)</label>
+    </div>
+    <div class="subject">
+      <label>BS2107 Physics and Chemistry Laboratory (2 Credits)</label>
+      <label><input type="radio" name="sem1_sub7" value="10"> O (10)</label>
+      <label><input type="radio" name="sem1_sub7" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem1_sub7" value="8"> A (8)</label>
+      <label><input type="radio" name="sem1_sub7" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem1_sub7" value="6"> B (6)</label>
+      <label><input type="radio" name="sem1_sub7" value="5"> C (5)</label>
+    </div>
+  </div>
 
-    <!-- Practical -->
+  <!-- Semester II -->
+  <div class="semester">
+    <h3>Semester II</h3>
     <div class="subject">
-      <label for="ES2501">Employability Enhancement Skills-V (1 Credit)</label>
-      <div class="grade-options">
-        <input type="radio" name="ES2501" value="10"> O 
-        <input type="radio" name="ES2501" value="9"> A+ 
-        <input type="radio" name="ES2501" value="8"> A 
-        <input type="radio" name="ES2501" value="7"> B+ 
-        <input type="radio" name="ES2501" value="6"> B 
-      </div>
+      <label>MA2201 Probability and Statistics (4 Credits)</label>
+      <label><input type="radio" name="sem2_sub1" value="10"> O (10)</label>
+      <label><input type="radio" name="sem2_sub1" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem2_sub1" value="8"> A (8)</label>
+      <label><input type="radio" name="sem2_sub1" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem2_sub1" value="6"> B (6)</label>
+      <label><input type="radio" name="sem2_sub1" value="5"> C (5)</label>
     </div>
     <div class="subject">
-      <label for="AD2505">Core Course Project-III (1 Credit)</label>
-      <div class="grade-options">
-        <input type="radio" name="AD2505" value="10"> O 
-        <input type="radio" name="AD2505" value="9"> A+ 
-        <input type="radio" name="AD2505" value="8"> A 
-        <input type="radio" name="AD2505" value="7"> B+ 
-        <input type="radio" name="AD2505" value="6"> B 
-      </div>
+      <label>HS2201 Communicative English - II (3 Credits)</label>
+      <label><input type="radio" name="sem2_sub2" value="10"> O (10)</label>
+      <label><input type="radio" name="sem2_sub2" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem2_sub2" value="8"> A (8)</label>
+      <label><input type="radio" name="sem2_sub2" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem2_sub2" value="6"> B (6)</label>
+      <label><input type="radio" name="sem2_sub2" value="5"> C (5)</label>
     </div>
+    <div class="subject">
+      <label>AD2201 Application Development Practices (4 Credits)</label>
+      <label><input type="radio" name="sem2_sub3" value="10"> O (10)</label>
+      <label><input type="radio" name="sem2_sub3" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem2_sub3" value="8"> A (8)</label>
+      <label><input type="radio" name="sem2_sub3" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem2_sub3" value="6"> B (6)</label>
+      <label><input type="radio" name="sem2_sub3" value="5"> C (5)</label>
+    </div>
+    <div class="subject">
+      <label>MA2202 Discrete Mathematics (3 Credits)</label>
+      <label><input type="radio" name="sem2_sub4" value="10"> O (10)</label>
+      <label><input type="radio" name="sem2_sub4" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem2_sub4" value="8"> A (8)</label>
+      <label><input type="radio" name="sem2_sub4" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem2_sub4" value="6"> B (6)</label>
+      <label><input type="radio" name="sem2_sub4" value="5"> C (5)</label>
+    </div>
+    <div class="subject">
+      <label>CS2201 Object-Oriented Programming using C++ (4 Credits)</label>
+      <label><input type="radio" name="sem2_sub5" value="10"> O (10)</label>
+      <label><input type="radio" name="sem2_sub5" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem2_sub5" value="8"> A (8)</label>
+      <label><input type="radio" name="sem2_sub5" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem2_sub5" value="6"> B (6)</label>
+      <label><input type="radio" name="sem2_sub5" value="5"> C (5)</label>
+    </div>
+    <div class="subject">
+      <label>ES2206 Employability Enhancement Skills - II (3 Credits)</label>
+      <label><input type="radio" name="sem2_sub6" value="10"> O (10)</label>
+      <label><input type="radio" name="sem2_sub6" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem2_sub6" value="8"> A (8)</label>
+      <label><input type="radio" name="sem2_sub6" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem2_sub6" value="6"> B (6)</label>
+      <label><input type="radio" name="sem2_sub6" value="5"> C (5)</label>
+    </div>
+    <div class="subject">
+      <label>BS2207 C++ Programming Laboratory (2 Credits)</label>
+      <label><input type="radio" name="sem2_sub7" value="10"> O (10)</label>
+      <label><input type="radio" name="sem2_sub7" value="9"> A+ (9)</label>
+      <label><input type="radio" name="sem2_sub7" value="8"> A (8)</label>
+      <label><input type="radio" name="sem2_sub7" value="7"> B+ (7)</label>
+      <label><input type="radio" name="sem2_sub7" value="6"> B (6)</label>
+      <label><input type="radio" name="sem2_sub7" value="5"> C (5)</label>
+    </div>
+  </div>
 
-    <button type="button" onclick="calculateGPA()">Calculate GPA</button>
-  </form>
+  <!-- Additional semesters go here -->
 
-  <div class="result" id="result"></div>
+  <div class="result">
+    <button onclick="calculateCGPA()">Calculate CGPA</button>
+    <p id="cgpaResult"></p>
+  </div>
 
   <script>
-    function calculateGPA() {
-      const subjects = {
-        AD2501: 3, AD2502: 3, AD2503: 4, AD2504: 4,
-        Elective1: 3, Elective2: 3, Elective3: 3,
-        ES2501: 1, AD2505: 1
-      };
-      let totalCredits = 0;
-      let totalGradePoints = 0;
-
-      for (let subject in subjects) {
-        const grade = document.querySelector(`input[name="${subject}"]:checked`);
-        if (grade) {
-          totalCredits += subjects[subject];
-          totalGradePoints += parseInt(grade.value) * subjects[subject];
+    function calculateCGPA() {
+      const semesters = [
+        {
+          subjects: [
+            { credits: 3, score: document.querySelector('input[name="sem1_sub1"]:checked')?.value },
+            { credits: 4, score: document.querySelector('input[name="sem1_sub2"]:checked')?.value },
+            { credits: 3, score: document.querySelector('input[name="sem1_sub3"]:checked')?.value },
+            { credits: 3, score: document.querySelector('input[name="sem1_sub4"]:checked')?.value },
+            { credits: 3, score: document.querySelector('input[name="sem1_sub5"]:checked')?.value },
+            { credits: 3, score: document.querySelector('input[name="sem1_sub6"]:checked')?.value },
+            { credits: 2, score: document.querySelector('input[name="sem1_sub7"]:checked')?.value },
+          ]
+        },
+        {
+          subjects: [
+            { credits: 4, score: document.querySelector('input[name="sem2_sub1"]:checked')?.value },
+            { credits: 3, score: document.querySelector('input[name="sem2_sub2"]:checked')?.value },
+            { credits: 4, score: document.querySelector('input[name="sem2_sub3"]:checked')?.value },
+            { credits: 3, score: document.querySelector('input[name="sem2_sub4"]:checked')?.value },
+            { credits: 4, score: document.querySelector('input[name="sem2_sub5"]:checked')?.value },
+            { credits: 3, score: document.querySelector('input[name="sem2_sub6"]:checked')?.value },
+            { credits: 2, score: document.querySelector('input[name="sem2_sub7"]:checked')?.value },
+          ]
         }
-      }
+      ];
 
-      const gpa = (totalGradePoints / totalCredits).toFixed(2);
-      document.getElementById('result').innerText = `Your GPA is: ${gpa}`;
+      let totalCredits = 0;
+      let totalScore = 0;
+
+      semesters.forEach(semester => {
+        semester.subjects.forEach(subject => {
+          if (subject.score) {
+            totalCredits += subject.credits;
+            totalScore += subject.credits * parseFloat(subject.score);
+          }
+        });
+      });
+
+      const cgpa = (totalScore / totalCredits).toFixed(2);
+      document.getElementById('cgpaResult').innerText = `Your CGPA is: ${cgpa}`;
     }
   </script>
+
 </body>
 </html>
