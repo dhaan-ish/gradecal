@@ -218,6 +218,14 @@
 
     <div id="sem3" class="semester">
         <h2>Semester III</h2>
+        
+        <!-- GPA Input Option -->
+        <label for="overallGPA">Overall GPA for Semester III:</label>
+        <input type="number" id="overallGPA" name="overallGPA" placeholder="Enter Overall GPA" step="0.1" min="0" max="10">
+
+        <br><br>
+        
+        <!-- Subject-wise Grade Option -->
         <div class="course">
             <label>MA2301 - Linear Algebra (4 credits):</label>
             <div class="grade-options">
@@ -289,7 +297,7 @@
             </div>
         </div>
         <div class="course">
-            <label>HS2301 - Heritage of Tamils  (1 credit):</label>
+            <label>HS2301 - Heritage of Tamils (1 credit):</label>
             <div class="grade-options">
                 <input type="radio" name="HS2301" value="10">O
                 <input type="radio" name="HS2301" value="9">A+
@@ -299,7 +307,7 @@
             </div>
         </div>
     </div>
-
+    
     <div id="sem4" class="semester">
         <h2>Semester IV</h2>
         <div class="course">
@@ -495,17 +503,29 @@
                     'MA2201': 4, 'HS2201': 3, 'AD2201': 4, 'AD2202': 4, 'AD2203': 4,
                     'ME2211': 2, 'ES2201': 1,
                     'MA2301': 4, 'AD2301': 4, 'AD2302': 4, 'AD2303': 4, 'AD2304': 4,
-                    'AD2305': 4, 'AD2301P': 1, 'HS2301' : 1,
+                    'AD2305': 4, 'AD2301P': 1, 'HS2301': 1,
                     'MA2401': 3, 'AD2401': 4, 'AD2402': 4, 'AD2403': 4, 'AD2404': 4,
                     'AD2405': 4, 'AD2401P': 1, 'HS2401': 1,
                     'AD2501': 3, 'AD2502': 3, 'AD2503': 4, 'AD2504': 4, 'PE1': 3,
                     'PE2': 3, 'PE3': 3, 'ES2501': 1, 'AD2505': 1
                 };
-        
+            
                 function calculateGPA() {
                     let semesterTotals = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
                     let semesterCredits = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
-                    
+                    let overallGPA = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
+                    let sem3gpa = document.getElementById('overallGPA').value;
+                    console.log(sem3gpa);
+            
+                    // Get overall GPA for each semester
+                    for (let sem = 1; sem <= 5; sem++) {
+                        const gpaInput = document.getElementById(`overallGPA${sem}`);
+                        if (gpaInput && gpaInput.value) {
+                            overallGPA[sem] = parseFloat(gpaInput.value);
+                        }
+                    }
+            
+                    // If overall GPA is not entered, calculate based on individual grades
                     for (let courseCode in courseCredits) {
                         const radioButtons = document.getElementsByName(courseCode);
                         let selectedValue = 0;
@@ -515,37 +535,48 @@
                                 break;
                             }
                         }
-                        
+            
                         const credits = courseCredits[courseCode];
                         let semester;
                         if (courseCode.startsWith('PE') || courseCode === 'ES2501' || courseCode === 'AD2505') {
                             semester = 5;
-                        } else if (courseCode == "HS2301"){
+                        } else if (courseCode == "HS2301") {
                             semester = 3;
                         } else {
                             semester = parseInt(courseCode.charAt(3));
                         }
-                        
-                        semesterTotals[semester] += selectedValue * credits;
-                        semesterCredits[semester] += credits;
+            
+                        // If overall GPA is already provided for this semester, skip calculations
+                        if (overallGPA[semester] === 0) {
+                            semesterTotals[semester] += selectedValue * credits;
+                            semesterCredits[semester] += credits;
+                        }
                     }
-                    
+            
                     let totalGPAPoints = 0;
                     let totalCredits = 0;
                     let results = "<h3>Semester-wise GPA:</h3>";
-                    
+            
                     for (let sem = 1; sem <= 5; sem++) {
-                        if (semesterCredits[sem] > 0) {
-                            const semGPA = semesterTotals[sem] / semesterCredits[sem];
-                            results += `Semester ${sem}: ${semGPA.toFixed(2)}<br>`;
-                            totalGPAPoints += semesterTotals[sem];
+                        if (semesterCredits[sem] > 0 || overallGPA[sem] > 0) {
+                            let semGPA = overallGPA[sem] > 0 ? overallGPA[sem] : (semesterTotals[sem] / semesterCredits[sem]);
+                            if (sem3gpa && sem == 3){
+                                console.log("this");
+                                semGPA = sem3gpa;
+                                results += `Semester ${sem}: ${sem3gpa}<br>`;
+                            }else{
+                                results += `Semester ${sem}: ${semGPA.toFixed(2)}<br>`;
+                            }
+                            totalGPAPoints += semGPA * semesterCredits[sem];
                             totalCredits += semesterCredits[sem];
                         }
                     }
+            
                     document.getElementById('semesterGPAs').innerHTML = results;
                     const cgpa = totalGPAPoints / totalCredits;
                     document.getElementById('cgpa').innerHTML = `<h3>CGPA: ${cgpa.toFixed(2)}</h3>`;
                 }
             </script>
+            
         </body>
         </html>
