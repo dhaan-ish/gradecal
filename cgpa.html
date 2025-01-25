@@ -588,7 +588,7 @@
                                 semGPA = sem3gpa;
                                 results += `Semester ${sem}: ${sem3gpa}<br>`;
                             }else{
-                                results += `Semester ${sem}: ${semGPA.toFixed(2)}<br>`;
+                                results += `Semester ${sem}: ${semGPA.toFixed(2)} - ${semesterCredits[sem]}<br>`;
                             }
                             totalGPAPoints += semGPA * semesterCredits[sem];
                             totalCredits += semesterCredits[sem];
