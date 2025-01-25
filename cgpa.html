@@ -486,6 +486,26 @@
                         <input type="radio" name="AD2505" value="6">B
                     </div>
                 </div>
+                <div class="course">
+        <label>ME2701 - Technical Writing (3 credits):</label>
+        <div class="grade-options">
+            <input type="radio" name="ME2701" value="10">O
+            <input type="radio" name="ME2701" value="9">A+
+            <input type="radio" name="ME2701" value="8">A
+            <input type="radio" name="ME2701" value="7">B+
+            <input type="radio" name="ME2701" value="6">B
+        </div>
+    </div>
+    <div class="course">
+        <label>HS2701 - Professional Ethics (2 credits):</label>
+        <div class="grade-options">
+            <input type="radio" name="HS2701" value="10">O
+            <input type="radio" name="HS2701" value="9">A+
+            <input type="radio" name="HS2701" value="8">A
+            <input type="radio" name="HS2701" value="7">B+
+            <input type="radio" name="HS2701" value="6">B
+        </div>
+    </div>
             </div>
         
             <button onclick="calculateGPA()">Calculate GPA and CGPA</button>
@@ -507,7 +527,8 @@
                     'MA2401': 3, 'AD2401': 4, 'AD2402': 4, 'AD2403': 4, 'AD2404': 4,
                     'AD2405': 4, 'AD2401P': 1, 'HS2401': 1,
                     'AD2501': 3, 'AD2502': 3, 'AD2503': 4, 'AD2504': 4, 'PE1': 3,
-                    'PE2': 3, 'PE3': 3, 'ES2501': 1, 'AD2505': 1
+                    'PE2': 3, 'PE3': 3, 'ES2501': 1, 'AD2505': 1, 'ME2701': 3, // Technical Writing
+    'HS2701': 2 
                 };
             
                 function calculateGPA() {
@@ -542,6 +563,8 @@
                             semester = 5;
                         } else if (courseCode == "HS2301") {
                             semester = 3;
+                        } else if (courseCode === 'ME2701' || courseCode === 'HS2701'){
+                            semester = 5;
                         } else {
                             semester = parseInt(courseCode.charAt(3));
                         }
