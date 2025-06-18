@@ -113,7 +113,7 @@
     </div>
 
     <div class="subject">
-      <label>Software Quality Management (3 Credits) - Optional</label>
+      <label>Software Quality Management (3 Credits)</label>
       <div class="grade-options">
         <input type="radio" name="sqm" value="10"> O
         <input type="radio" name="sqm" value="9"> A+
@@ -138,30 +138,33 @@
         eia: 3,
         ccp: 1,
         cdc: 3,
-        sqm: 3 // optional
+        sqm: 3
       };
-
-      const optional = ['sqm'];
 
       let totalCredits = 0;
       let totalGradePoints = 0;
+      let selectedSubjects = 0;
 
       for (let subject in subjects) {
         const gradeInput = document.querySelector(`input[name="${subject}"]:checked`);
-        if (!gradeInput && !optional.includes(subject)) {
-          alert(`Please select a grade for ${subject.toUpperCase()}`);
-          return;
-        }
-
         if (gradeInput) {
           const grade = parseInt(gradeInput.value);
           totalCredits += subjects[subject];
           totalGradePoints += grade * subjects[subject];
+          selectedSubjects++;
         }
       }
 
+      const resultElement = document.getElementById('result');
+      if (selectedSubjects === 0) {
+        resultElement.innerText = "Please select at least one subject to calculate GPA.";
+        resultElement.style.color = "red";
+        return;
+      }
+
       const gpa = (totalGradePoints / totalCredits).toFixed(2);
-      document.getElementById('result').innerText = `Your GPA is: ${gpa}`;
+      resultElement.innerText = `Your GPA is: ${gpa}`;
+      resultElement.style.color = "green";
     }
   </script>
 </body>
