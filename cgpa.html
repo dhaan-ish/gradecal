@@ -1,606 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPA Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .semester {
-            margin-bottom: 30px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .course {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-radius: 3px;
-        }
-        .grade-options {
-            margin-left: 20px;
-        }
-        .results {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #e8f4f8;
-            border-radius: 5px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GPA and CGPA Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+    .semester {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .course {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 3px;
+    }
+    .grade-options {
+      margin-left: 20px;
+    }
+    .results {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #e8f4f8;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-    <h1>GPA and CGPA Calculator</h1>
-    
-    <div id="sem1" class="semester">
-        <h2>Semester I</h2>
-        <div class="course">
-            <label>HS2101 - Communicative English - I (3 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="HS2101" value="10">O
-                <input type="radio" name="HS2101" value="9">A+
-                <input type="radio" name="HS2101" value="8">A
-                <input type="radio" name="HS2101" value="7">B+
-                <input type="radio" name="HS2101" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>MA2102 - Matrices and Calculus (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="MA2102" value="10">O
-                <input type="radio" name="MA2102" value="9">A+
-                <input type="radio" name="MA2102" value="8">A
-                <input type="radio" name="MA2102" value="7">B+
-                <input type="radio" name="MA2102" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>PH2103 - Engineering Physics (3 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="PH2103" value="10">O
-                <input type="radio" name="PH2103" value="9">A+
-                <input type="radio" name="PH2103" value="8">A
-                <input type="radio" name="PH2103" value="7">B+
-                <input type="radio" name="PH2103" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>CH2104 - Engineering Chemistry (3 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="CH2104" value="10">O
-                <input type="radio" name="CH2104" value="9">A+
-                <input type="radio" name="CH2104" value="8">A
-                <input type="radio" name="CH2104" value="7">B+
-                <input type="radio" name="CH2104" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2105 - Problem Solving using Python (3 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2105" value="10">O
-                <input type="radio" name="AD2105" value="9">A+
-                <input type="radio" name="AD2105" value="8">A
-                <input type="radio" name="AD2105" value="7">B+
-                <input type="radio" name="AD2105" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>ES2106 - Employability Enhancement Skills - I (3 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="ES2106" value="10">O
-                <input type="radio" name="ES2106" value="9">A+
-                <input type="radio" name="ES2106" value="8">A
-                <input type="radio" name="ES2106" value="7">B+
-                <input type="radio" name="ES2106" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>BS2107 - Physics and Chemistry Laboratory (2 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="BS2107" value="10">O
-                <input type="radio" name="BS2107" value="9">A+
-                <input type="radio" name="BS2107" value="8">A
-                <input type="radio" name="BS2107" value="7">B+
-                <input type="radio" name="BS2107" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2108 - Problem Solving using Python Laboratory (2 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2108" value="10">O
-                <input type="radio" name="AD2108" value="9">A+
-                <input type="radio" name="AD2108" value="8">A
-                <input type="radio" name="AD2108" value="7">B+
-                <input type="radio" name="AD2108" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>HS2109 - Communicative English Laboratory -I (1 credit):</label>
-            <div class="grade-options">
-                <input type="radio" name="HS2109" value="10">O
-                <input type="radio" name="HS2109" value="9">A+
-                <input type="radio" name="HS2109" value="8">A
-                <input type="radio" name="HS2109" value="7">B+
-                <input type="radio" name="HS2109" value="6">B
-            </div>
-        </div>
-    </div>
+  <h1>GPA and CGPA Calculator</h1>
 
-    <div id="sem2" class="semester">
-        <h2>Semester II</h2>
-        <div class="course">
-            <label>MA2201 - Probability and Statistics (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="MA2201" value="10">O
-                <input type="radio" name="MA2201" value="9">A+
-                <input type="radio" name="MA2201" value="8">A
-                <input type="radio" name="MA2201" value="7">B+
-                <input type="radio" name="MA2201" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>HS2201 - Communicative English - II (3 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="HS2201" value="10">O
-                <input type="radio" name="HS2201" value="9">A+
-                <input type="radio" name="HS2201" value="8">A
-                <input type="radio" name="HS2201" value="7">B+
-                <input type="radio" name="HS2201" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2201 - Application Development Practices (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2201" value="10">O
-                <input type="radio" name="AD2201" value="9">A+
-                <input type="radio" name="AD2201" value="8">A
-                <input type="radio" name="AD2201" value="7">B+
-                <input type="radio" name="AD2201" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2202 - Programming and Data Structures using C (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2202" value="10">O
-                <input type="radio" name="AD2202" value="9">A+
-                <input type="radio" name="AD2202" value="8">A
-                <input type="radio" name="AD2202" value="7">B+
-                <input type="radio" name="AD2202" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2203 - Digital Principles and Computer Organization (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2203" value="10">O
-                <input type="radio" name="AD2203" value="9">A+
-                <input type="radio" name="AD2203" value="8">A
-                <input type="radio" name="AD2203" value="7">B+
-                <input type="radio" name="AD2203" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>ME2211 - Engineering Graphics (2 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="ME2211" value="10">O
-                <input type="radio" name="ME2211" value="9">A+
-                <input type="radio" name="ME2211" value="8">A
-                <input type="radio" name="ME2211" value="7">B+
-                <input type="radio" name="ME2211" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>ES2201 - Employability Enhancement Skills - II (1 credit):</label>
-            <div class="grade-options">
-                <input type="radio" name="ES2201" value="10">O
-                <input type="radio" name="ES2201" value="9">A+
-                <input type="radio" name="ES2201" value="8">A
-                <input type="radio" name="ES2201" value="7">B+
-                <input type="radio" name="ES2201" value="6">B
-            </div>
-        </div>
-    </div>
+  <!-- Semester 1 to 4: GPA as input -->
+  <div class="semester">
+    <h2>Semester I</h2>
+    <label>Enter GPA:</label>
+    <input type="number" id="gpa1" min="0" max="10" step="0.01" placeholder="e.g. 8.5" />
+  </div>
 
-    <div id="sem3" class="semester">
-        <h2>Semester III</h2>
-        
-        <!-- GPA Input Option -->
-        <label for="overallGPA">Overall GPA for Semester III:</label>
-        <input type="number" id="overallGPA" name="overallGPA" placeholder="Enter Overall GPA" step="0.1" min="0" max="10">
+  <div class="semester">
+    <h2>Semester II</h2>
+    <label>Enter GPA:</label>
+    <input type="number" id="gpa2" min="0" max="10" step="0.01" placeholder="e.g. 9.0" />
+  </div>
 
-        <br><br>
-        
-        <!-- Subject-wise Grade Option -->
-        <div class="course">
-            <label>MA2301 - Linear Algebra (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="MA2301" value="10">O
-                <input type="radio" name="MA2301" value="9">A+
-                <input type="radio" name="MA2301" value="8">A
-                <input type="radio" name="MA2301" value="7">B+
-                <input type="radio" name="MA2301" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2301 - Advanced Data Structures and Algorithms (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2301" value="10">O
-                <input type="radio" name="AD2301" value="9">A+
-                <input type="radio" name="AD2301" value="8">A
-                <input type="radio" name="AD2301" value="7">B+
-                <input type="radio" name="AD2301" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2302 - Modern Database Technology (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2302" value="10">O
-                <input type="radio" name="AD2302" value="9">A+
-                <input type="radio" name="AD2302" value="8">A
-                <input type="radio" name="AD2302" value="7">B+
-                <input type="radio" name="AD2302" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2303 - Web Technology (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2303" value="10">O
-                <input type="radio" name="AD2303" value="9">A+
-                <input type="radio" name="AD2303" value="8">A
-                <input type="radio" name="AD2303" value="7">B+
-                <input type="radio" name="AD2303" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2304 - Fundamentals of Data Science and Analytics (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2304" value="10">O
-                <input type="radio" name="AD2304" value="9">A+
-                <input type="radio" name="AD2304" value="8">A
-                <input type="radio" name="AD2304" value="7">B+
-                <input type="radio" name="AD2304" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2305 - Advanced Java Programming (4 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2305" value="10">O
-                <input type="radio" name="AD2305" value="9">A+
-                <input type="radio" name="AD2305" value="8">A
-                <input type="radio" name="AD2305" value="7">B+
-                <input type="radio" name="AD2305" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>AD2301P - Employability Enhancement Skills –III (1 credit):</label>
-            <div class="grade-options">
-                <input type="radio" name="AD2301P" value="10">O
-                <input type="radio" name="AD2301P" value="9">A+
-                <input type="radio" name="AD2301P" value="8">A
-                <input type="radio" name="AD2301P" value="7">B+
-                <input type="radio" name="AD2301P" value="6">B
-            </div>
-        </div>
-        <div class="course">
-            <label>HS2301 - Heritage of Tamils (1 credit):</label>
-            <div class="grade-options">
-                <input type="radio" name="HS2301" value="10">O
-                <input type="radio" name="HS2301" value="9">A+
-                <input type="radio" name="HS2301" value="8">A
-                <input type="radio" name="HS2301" value="7">B+
-                <input type="radio" name="HS2301" value="6">B
-            </div>
-        </div>
-    </div>
-    
-    <div id="sem4" class="semester">
-        <h2>Semester IV</h2>
-        <div class="course">
-            <label>MA2401 - Discrete Mathematics (3 credits):</label>
-            <div class="grade-options">
-                <input type="radio" name="MA2401" value="10">O
-                <input type="radio" name="MA2401" value="9">A+
-                <input type="radio" name="MA2401" value="8">A
-                <input type="radio" name="MA2401" value="7">B+
-                <input type="radio" name="MA2401" value="6">B
-            </div>
-        </div>
+  <div class="semester">
+    <h2>Semester III</h2>
+    <label>Enter GPA:</label>
+    <input type="number" id="gpa3" min="0" max="10" step="0.01" placeholder="e.g. 8.3" />
+  </div>
 
+  <div class="semester">
+    <h2>Semester IV</h2>
+    <label>Enter GPA:</label>
+    <input type="number" id="gpa4" min="0" max="10" step="0.01" placeholder="e.g. 9.1" />
+  </div>
 
-                <div class="course">
-                    <label>AD2401 - Operating Systems (4 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2401" value="10">O
-                        <input type="radio" name="AD2401" value="9">A+
-                        <input type="radio" name="AD2401" value="8">A
-                        <input type="radio" name="AD2401" value="7">B+
-                        <input type="radio" name="AD2401" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2402 - Machine Learning (4 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2402" value="10">O
-                        <input type="radio" name="AD2402" value="9">A+
-                        <input type="radio" name="AD2402" value="8">A
-                        <input type="radio" name="AD2402" value="7">B+
-                        <input type="radio" name="AD2402" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2403 - Computer Networks (4 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2403" value="10">O
-                        <input type="radio" name="AD2403" value="9">A+
-                        <input type="radio" name="AD2403" value="8">A
-                        <input type="radio" name="AD2403" value="7">B+
-                        <input type="radio" name="AD2403" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2404 - Web Frameworks (4 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2404" value="10">O
-                        <input type="radio" name="AD2404" value="9">A+
-                        <input type="radio" name="AD2404" value="8">A
-                        <input type="radio" name="AD2404" value="7">B+
-                        <input type="radio" name="AD2404" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2405 - Artificial Intelligence (4 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2405" value="10">O
-                        <input type="radio" name="AD2405" value="9">A+
-                        <input type="radio" name="AD2405" value="8">A
-                        <input type="radio" name="AD2405" value="7">B+
-                        <input type="radio" name="AD2405" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2401P - Employability Enhancement Skills – IV (1 credit):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2401P" value="10">O
-                        <input type="radio" name="AD2401P" value="9">A+
-                        <input type="radio" name="AD2401P" value="8">A
-                        <input type="radio" name="AD2401P" value="7">B+
-                        <input type="radio" name="AD2401P" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>HS2401 - Tamils and Technology (1 credit):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="HS2401" value="10">O
-                        <input type="radio" name="HS2401" value="9">A+
-                        <input type="radio" name="HS2401" value="8">A
-                        <input type="radio" name="HS2401" value="7">B+
-                        <input type="radio" name="HS2401" value="6">B
-                    </div>
-                </div>
-            </div>
-        
-            <div id="sem5" class="semester">
-                <h2>Semester V</h2>
-                <div class="course">
-                    <label>AD2501 - Computing Theory and Compiler Design (3 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2501" value="10">O
-                        <input type="radio" name="AD2501" value="9">A+
-                        <input type="radio" name="AD2501" value="8">A
-                        <input type="radio" name="AD2501" value="7">B+
-                        <input type="radio" name="AD2501" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2502 - Natural Language Processing (3 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2502" value="10">O
-                        <input type="radio" name="AD2502" value="9">A+
-                        <input type="radio" name="AD2502" value="8">A
-                        <input type="radio" name="AD2502" value="7">B+
-                        <input type="radio" name="AD2502" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2503 - Big Data Analytics (4 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2503" value="10">O
-                        <input type="radio" name="AD2503" value="9">A+
-                        <input type="radio" name="AD2503" value="8">A
-                        <input type="radio" name="AD2503" value="7">B+
-                        <input type="radio" name="AD2503" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2504 - Deep Learning (4 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2504" value="10">O
-                        <input type="radio" name="AD2504" value="9">A+
-                        <input type="radio" name="AD2504" value="8">A
-                        <input type="radio" name="AD2504" value="7">B+
-                        <input type="radio" name="AD2504" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>Professional Elective-I Devops (3 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="PE1" value="10">O
-                        <input type="radio" name="PE1" value="9">A+
-                        <input type="radio" name="PE1" value="8">A
-                        <input type="radio" name="PE1" value="7">B+
-                        <input type="radio" name="PE1" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>Professional Elective-II UI & UX (3 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="PE2" value="10">O
-                        <input type="radio" name="PE2" value="9">A+
-                        <input type="radio" name="PE2" value="8">A
-                        <input type="radio" name="PE2" value="7">B+
-                        <input type="radio" name="PE2" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>Professional Elective-III CIS (3 credits):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="PE3" value="10">O
-                        <input type="radio" name="PE3" value="9">A+
-                        <input type="radio" name="PE3" value="8">A
-                        <input type="radio" name="PE3" value="7">B+
-                        <input type="radio" name="PE3" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>ES2501 - Employability Enhancement Skills V (1 credit):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="ES2501" value="10">O
-                        <input type="radio" name="ES2501" value="9">A+
-                        <input type="radio" name="ES2501" value="8">A
-                        <input type="radio" name="ES2501" value="7">B+
-                        <input type="radio" name="ES2501" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-                    <label>AD2505 - Core Course Project - III (1 credit):</label>
-                    <div class="grade-options">
-                        <input type="radio" name="AD2505" value="10">O
-                        <input type="radio" name="AD2505" value="9">A+
-                        <input type="radio" name="AD2505" value="8">A
-                        <input type="radio" name="AD2505" value="7">B+
-                        <input type="radio" name="AD2505" value="6">B
-                    </div>
-                </div>
-                <div class="course">
-        <label>ME2701 - Technical Writing (3 credits):</label>
-        <div class="grade-options">
-            <input type="radio" name="ME2701" value="10">O
-            <input type="radio" name="ME2701" value="9">A+
-            <input type="radio" name="ME2701" value="8">A
-            <input type="radio" name="ME2701" value="7">B+
-            <input type="radio" name="ME2701" value="6">B
-        </div>
-    </div>
+  <!-- Semester 5 -->
+  <div class="semester" id="sem5">
+    <h2>Semester V</h2>
+
     <div class="course">
-        <label>HS2701 - Professional Ethics (2 credits):</label>
-        <div class="grade-options">
-            <input type="radio" name="HS2701" value="10">O
-            <input type="radio" name="HS2701" value="9">A+
-            <input type="radio" name="HS2701" value="8">A
-            <input type="radio" name="HS2701" value="7">B+
-            <input type="radio" name="HS2701" value="6">B
-        </div>
+      <label>AD2501 - Computing Theory and Compiler Design (3 credits):</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2501" value="10">O
+        <input type="radio" name="AD2501" value="9">A+
+        <input type="radio" name="AD2501" value="8">A
+        <input type="radio" name="AD2501" value="7">B+
+        <input type="radio" name="AD2501" value="6">B
+      </div>
     </div>
-            </div>
-        
-            <button onclick="calculateGPA()">Calculate GPA and CGPA</button>
-        
-            <div id="results" class="results">
-                <h2>Results</h2>
-                <div id="semesterGPAs"></div>
-                <div id="cgpa"></div>
-            </div>
-        
-            <script>
-                const courseCredits = {
-                    'HS2101': 3, 'MA2102': 4, 'PH2103': 3, 'CH2104': 3, 'AD2105': 3,
-                    'ES2106': 3, 'BS2107': 2, 'AD2108': 2, 'HS2109': 1,
-                    'MA2201': 4, 'HS2201': 3, 'AD2201': 4, 'AD2202': 4, 'AD2203': 4,
-                    'ME2211': 2, 'ES2201': 1,
-                    'MA2301': 4, 'AD2301': 4, 'AD2302': 4, 'AD2303': 4, 'AD2304': 4,
-                    'AD2305': 4, 'AD2301P': 1, 'HS2301': 1,
-                    'MA2401': 3, 'AD2401': 4, 'AD2402': 4, 'AD2403': 4, 'AD2404': 4,
-                    'AD2405': 4, 'AD2401P': 1, 'HS2401': 1,
-                    'AD2501': 3, 'AD2502': 3, 'AD2503': 4, 'AD2504': 4, 'PE1': 3,
-                    'PE2': 3, 'PE3': 3, 'ES2501': 1, 'AD2505': 1, 'ME2701': 3, // Technical Writing
-    'HS2701': 3
-                };
-            
-                function calculateGPA() {
-                    let semesterTotals = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
-                    let semesterCredits = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
-                    let overallGPA = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
-                    let sem3gpa = document.getElementById('overallGPA').value;
-                    console.log(sem3gpa);
-            
-                    // Get overall GPA for each semester
-                    for (let sem = 1; sem <= 5; sem++) {
-                        const gpaInput = document.getElementById(`overallGPA${sem}`);
-                        if (gpaInput && gpaInput.value) {
-                            overallGPA[sem] = parseFloat(gpaInput.value);
-                        }
-                    }
-            
-                    // If overall GPA is not entered, calculate based on individual grades
-                    for (let courseCode in courseCredits) {
-                        const radioButtons = document.getElementsByName(courseCode);
-                        let selectedValue = 0;
-                        for (let radio of radioButtons) {
-                            if (radio.checked) {
-                                selectedValue = parseFloat(radio.value);
-                                break;
-                            }
-                        }
-            
-                        const credits = courseCredits[courseCode];
-                        let semester;
-                        if (courseCode.startsWith('PE') || courseCode === 'ES2501' || courseCode === 'AD2505') {
-                            semester = 5;
-                        } else if (courseCode == "HS2301") {
-                            semester = 3;
-                        } else if (courseCode === 'ME2701' || courseCode === 'HS2701'){
-                            semester = 5;
-                        } else {
-                            semester = parseInt(courseCode.charAt(3));
-                        }
-            
-                        // If overall GPA is already provided for this semester, skip calculations
-                        if (overallGPA[semester] === 0) {
-                            semesterTotals[semester] += selectedValue * credits;
-                            semesterCredits[semester] += credits;
-                        }
-                    }
-            
-                    let totalGPAPoints = 0;
-                    let totalCredits = 0;
-                    let results = "<h3>Semester-wise GPA:</h3>";
-            
-                    for (let sem = 1; sem <= 5; sem++) {
-                        if (semesterCredits[sem] > 0 || overallGPA[sem] > 0) {
-                            let semGPA = overallGPA[sem] > 0 ? overallGPA[sem] : (semesterTotals[sem] / semesterCredits[sem]);
-                            if (sem3gpa && sem == 3){
-                                console.log("this");
-                                semGPA = sem3gpa;
-                                results += `Semester ${sem}: ${sem3gpa}<br>`;
-                            }else{
-                                results += `Semester ${sem}: GPA = ${semGPA.toFixed(2)}, Total Credits = ${semesterCredits[sem]}<br>`;
-                                
-                            }
-                            totalGPAPoints += semGPA * semesterCredits[sem];
-                            totalCredits += semesterCredits[sem];
-                        }
-                    }
-            
-                    document.getElementById('semesterGPAs').innerHTML = results;
-                    const cgpa = totalGPAPoints / totalCredits;
-                    document.getElementById('cgpa').innerHTML = `<h3>CGPA: ${cgpa.toFixed(2)}</h3>`;
-                }
-            </script>
-            
-        </body>
-        </html>
+
+    <div class="course">
+      <label>AD2502 - Natural Language Processing (3 credits):</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2502" value="10">O
+        <input type="radio" name="AD2502" value="9">A+
+        <input type="radio" name="AD2502" value="8">A
+        <input type="radio" name="AD2502" value="7">B+
+        <input type="radio" name="AD2502" value="6">B
+      </div>
+    </div>
+
+    <div class="course">
+      <label>AD2503 - Big Data Analytics (4 credits):</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2503" value="10">O
+        <input type="radio" name="AD2503" value="9">A+
+        <input type="radio" name="AD2503" value="8">A
+        <input type="radio" name="AD2503" value="7">B+
+        <input type="radio" name="AD2503" value="6">B
+      </div>
+    </div>
+  </div>
+
+  <!-- Semester 6 -->
+  <div class="semester" id="sem6">
+    <h2>Semester VI</h2>
+
+    <div class="course">
+      <label>Generative AI (3 Credits):</label>
+      <div class="grade-options">
+        <input type="radio" name="genai" value="10">O
+        <input type="radio" name="genai" value="9">A+
+        <input type="radio" name="genai" value="8">A
+        <input type="radio" name="genai" value="7">B+
+        <input type="radio" name="genai" value="6">B
+      </div>
+    </div>
+
+    <div class="course">
+      <label>Computer Vision (3 Credits):</label>
+      <div class="grade-options">
+        <input type="radio" name="cv" value="10">O
+        <input type="radio" name="cv" value="9">A+
+        <input type="radio" name="cv" value="8">A
+        <input type="radio" name="cv" value="7">B+
+        <input type="radio" name="cv" value="6">B
+      </div>
+    </div>
+
+    <div class="course">
+      <label>Software Project Management (3 Credits):</label>
+      <div class="grade-options">
+        <input type="radio" name="spm" value="10">O
+        <input type="radio" name="spm" value="9">A+
+        <input type="radio" name="spm" value="8">A
+        <input type="radio" name="spm" value="7">B+
+        <input type="radio" name="spm" value="6">B
+      </div>
+    </div>
+
+    <div class="course">
+      <label>Core Course Project (1 Credit):</label>
+      <div class="grade-options">
+        <input type="radio" name="ccp" value="10">O
+        <input type="radio" name="ccp" value="9">A+
+        <input type="radio" name="ccp" value="8">A
+        <input type="radio" name="ccp" value="7">B+
+        <input type="radio" name="ccp" value="6">B
+      </div>
+    </div>
+  </div>
+
+  <button onclick="calculateCGPA()">Calculate CGPA</button>
+
+  <div class="results" id="result"></div>
+
+  <script>
+    const credits = {
+      // Sem 5
+      AD2501: 3,
+      AD2502: 3,
+      AD2503: 4,
+      // Sem 6
+      genai: 3,
+      cv: 3,
+      spm: 3,
+      ccp: 1
+    };
+
+    const semCredits = {
+      gpa1: 24,
+      gpa2: 25,
+      gpa3: 26,
+      gpa4: 26
+    };
+
+    function calculateCGPA() {
+      let totalCredits = 0;
+      let totalGradePoints = 0;
+
+      // Semesters 1–4 GPA inputs
+      for (let sem in semCredits) {
+        const gpaVal = parseFloat(document.getElementById(sem).value);
+        if (!isNaN(gpaVal)) {
+          totalCredits += semCredits[sem];
+          totalGradePoints += gpaVal * semCredits[sem];
+        }
+      }
+
+      // Sem 5–6 subject grade inputs
+      for (let subject in credits) {
+        const selected = document.querySelector(`input[name="${subject}"]:checked`);
+        if (selected) {
+          const grade = parseInt(selected.value);
+          totalCredits += credits[subject];
+          totalGradePoints += grade * credits[subject];
+        }
+      }
+
+      const resultBox = document.getElementById("result");
+      if (totalCredits === 0) {
+        resultBox.innerText = "Please enter at least one GPA or grade.";
+        resultBox.style.color = "red";
+        return;
+      }
+
+      const cgpa = (totalGradePoints / totalCredits).toFixed(2);
+      resultBox.innerText = `🎓 Your CGPA is: ${cgpa}`;
+      resultBox.style.color = "green";
+    }
+  </script>
+</body>
+</html>
