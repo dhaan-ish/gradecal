@@ -3,82 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GPA and CGPA Calculator</title>
+  <title>GPA & CGPA Calculator</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-    }
-    .semester {
-      margin-bottom: 30px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .course {
-      margin: 10px 0;
-      padding: 10px;
-      background-color: #f5f5f5;
-      border-radius: 3px;
-    }
-    .grade-options {
-      margin-left: 20px;
-    }
-    .results {
-      margin-top: 20px;
-      padding: 20px;
-      background-color: #e8f4f8;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
+    body { font-family: Arial; max-width: 900px; margin: 20px auto; padding: 20px; }
+    .semester { margin-bottom: 30px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+    .course { margin: 10px 0; background: #f9f9f9; padding: 10px; border-radius: 4px; }
+    .grade-options input { margin-right: 5px; }
+    .results { margin-top: 20px; padding: 15px; background: #e8f4f8; border-radius: 5px; font-size: 1.2em; font-weight: bold; }
+    button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0056b3; }
   </style>
 </head>
 <body>
-  <h1>GPA and CGPA Calculator</h1>
 
-  <!-- Semester 1 to 4: GPA as input -->
-  <div class="semester">
-    <h2>Semester I</h2>
-    <label>Enter GPA:</label>
-    <input type="number" id="gpa1" min="0" max="10" step="0.01" placeholder="e.g. 8.5" />
-  </div>
+  <h1>GPA & CGPA Calculator</h1>
 
-  <div class="semester">
-    <h2>Semester II</h2>
-    <label>Enter GPA:</label>
-    <input type="number" id="gpa2" min="0" max="10" step="0.01" placeholder="e.g. 9.0" />
-  </div>
+  <!-- Semesters I–IV: numeric GPA input -->
+  <div class="semester"><h2>Semester I</h2><input type="number" id="gpa1" placeholder="Enter GPA (0–10)" min="0" max="10" step="0.01" /></div>
+  <div class="semester"><h2>Semester II</h2><input type="number" id="gpa2" placeholder="Enter GPA (0–10)" min="0" max="10" step="0.01" /></div>
+  <div class="semester"><h2>Semester III</h2><input type="number" id="gpa3" placeholder="Enter GPA (0–10)" min="0" max="10" step="0.01" /></div>
+  <div class="semester"><h2>Semester IV</h2><input type="number" id="gpa4" placeholder="Enter GPA (0–10)" min="0" max="10" step="0.01" /></div>
 
-  <div class="semester">
-    <h2>Semester III</h2>
-    <label>Enter GPA:</label>
-    <input type="number" id="gpa3" min="0" max="10" step="0.01" placeholder="e.g. 8.3" />
-  </div>
-
-  <div class="semester">
-    <h2>Semester IV</h2>
-    <label>Enter GPA:</label>
-    <input type="number" id="gpa4" min="0" max="10" step="0.01" placeholder="e.g. 9.1" />
-  </div>
-
-  <!-- Semester 5 -->
+  <!-- Semester V subjects -->
   <div class="semester" id="sem5">
     <h2>Semester V</h2>
-
-    <div class="course">
-      <label>AD2501 - Computing Theory and Compiler Design (3 credits):</label>
+    <div class="course"><label>AD2501 – Computing Theory & Compiler Design (3 cr):</label>
       <div class="grade-options">
         <input type="radio" name="AD2501" value="10">O
         <input type="radio" name="AD2501" value="9">A+
@@ -87,9 +36,25 @@
         <input type="radio" name="AD2501" value="6">B
       </div>
     </div>
-
-    <div class="course">
-      <label>AD2502 - Natural Language Processing (3 credits):</label>
+    <div class="course"><label>HS2703 – Professional Ethics & Universal Human Values (3 cr):</label>
+      <div class="grade-options">
+        <input type="radio" name="HS2703" value="10">O
+        <input type="radio" name="HS2703" value="9">A+
+        <input type="radio" name="HS2703" value="8">A
+        <input type="radio" name="HS2703" value="7">B+
+        <input type="radio" name="HS2703" value="6">B
+      </div>
+    </div>
+    <div class="course"><label>ME2701 – Technical Writing (3 cr):</label>
+      <div class="grade-options">
+        <input type="radio" name="ME2701" value="10">O
+        <input type="radio" name="ME2701" value="9">A+
+        <input type="radio" name="ME2701" value="8">A
+        <input type="radio" name="ME2701" value="7">B+
+        <input type="radio" name="ME2701" value="6">B
+      </div>
+    </div>
+    <div class="course"><label>AD2502 – Natural Language Processing (3 cr):</label>
       <div class="grade-options">
         <input type="radio" name="AD2502" value="10">O
         <input type="radio" name="AD2502" value="9">A+
@@ -98,9 +63,7 @@
         <input type="radio" name="AD2502" value="6">B
       </div>
     </div>
-
-    <div class="course">
-      <label>AD2503 - Big Data Analytics (4 credits):</label>
+    <div class="course"><label>AD2503 – Big Data Analytics (4 cr):</label>
       <div class="grade-options">
         <input type="radio" name="AD2503" value="10">O
         <input type="radio" name="AD2503" value="9">A+
@@ -109,115 +72,181 @@
         <input type="radio" name="AD2503" value="6">B
       </div>
     </div>
+    <div class="course"><label>AD2504 – Deep Learning (4 cr):</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2504" value="10">O
+        <input type="radio" name="AD2504" value="9">A+
+        <input type="radio" name="AD2504" value="8">A
+        <input type="radio" name="AD2504" value="7">B+
+        <input type="radio" name="AD2504" value="6">B
+      </div>
+    </div>
+    <div class="course"><label>AD2V15 – DevOps (3 cr):</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2V15" value="10">O
+        <input type="radio" name="AD2V15" value="9">A+
+        <input type="radio" name="AD2V15" value="8">A
+        <input type="radio" name="AD2V15" value="7">B+
+        <input type="radio" name="AD2V15" value="6">B
+      </div>
+    </div>
+    <div class="course"><label>AD2V13 – UI & UX Design (3 cr):</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2V13" value="10">O
+        <input type="radio" name="AD2V13" value="9">A+
+        <input type="radio" name="AD2V13" value="8">A
+        <input type="radio" name="AD2V13" value="7">B+
+        <input type="radio" name="AD2V13" value="6">B
+      </div>
+    </div>
+    <div class="course"><label>AD2V31 – Cryptography & Information Security (3 cr):</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2V31" value="10">O
+        <input type="radio" name="AD2V31" value="9">A+
+        <input type="radio" name="AD2V31" value="8">A
+        <input type="radio" name="AD2V31" value="7">B+
+        <input type="radio" name="AD2V31" value="6">B
+      </div>
+    </div>
+    <div class="course"><label>ES2501 – Employability Enhancement Skills‑V (1 cr):</label>
+      <div class="grade-options">
+        <input type="radio" name="ES2501" value="10">O
+        <input type="radio" name="ES2501" value="9">A+
+        <input type="radio" name="ES2501" value="8">A
+        <input type="radio" name="ES2501" value="7">B+
+        <input type="radio" name="ES2501" value="6">B
+      </div>
+    </div>
+    <div class="course"><label>AD2505 – Core Course Project (1 cr):</label>
+      <div class="grade-options">
+        <input type="radio" name="AD2505" value="10">O
+        <input type="radio" name="AD2505" value="9">A+
+        <input type="radio" name="AD2505" value="8">A
+        <input type="radio" name="AD2505" value="7">B+
+        <input type="radio" name="AD2505" value="6">B
+      </div>
+    </div>
   </div>
 
-  <!-- Semester 6 -->
+  <!-- Semester VI subjects -->
   <div class="semester" id="sem6">
     <h2>Semester VI</h2>
-
-    <div class="course">
-      <label>Generative AI (3 Credits):</label>
-      <div class="grade-options">
-        <input type="radio" name="genai" value="10">O
-        <input type="radio" name="genai" value="9">A+
-        <input type="radio" name="genai" value="8">A
-        <input type="radio" name="genai" value="7">B+
-        <input type="radio" name="genai" value="6">B
-      </div>
-    </div>
-
-    <div class="course">
-      <label>Computer Vision (3 Credits):</label>
-      <div class="grade-options">
-        <input type="radio" name="cv" value="10">O
-        <input type="radio" name="cv" value="9">A+
-        <input type="radio" name="cv" value="8">A
-        <input type="radio" name="cv" value="7">B+
-        <input type="radio" name="cv" value="6">B
-      </div>
-    </div>
-
-    <div class="course">
-      <label>Software Project Management (3 Credits):</label>
-      <div class="grade-options">
-        <input type="radio" name="spm" value="10">O
-        <input type="radio" name="spm" value="9">A+
-        <input type="radio" name="spm" value="8">A
-        <input type="radio" name="spm" value="7">B+
-        <input type="radio" name="spm" value="6">B
-      </div>
-    </div>
-
-    <div class="course">
-      <label>Core Course Project (1 Credit):</label>
-      <div class="grade-options">
-        <input type="radio" name="ccp" value="10">O
-        <input type="radio" name="ccp" value="9">A+
-        <input type="radio" name="ccp" value="8">A
-        <input type="radio" name="ccp" value="7">B+
-        <input type="radio" name="ccp" value="6">B
-      </div>
-    </div>
+    <div class="course"><label>Generative AI (3 cr):</label><div class="grade-options">
+      <input type="radio" name="genai" value="10">O
+      <input type="radio" name="genai" value="9">A+
+      <input type="radio" name="genai" value="8">A
+      <input type="radio" name="genai" value="7">B+
+      <input type="radio" name="genai" value="6">B
+    </div></div>
+    <div class="course"><label>Computer Vision (3 cr):</label><div class="grade-options">
+      <input type="radio" name="cv" value="10">O
+      <input type="radio" name="cv" value="9">A+
+      <input type="radio" name="cv" value="8">A
+      <input type="radio" name="cv" value="7">B+
+      <input type="radio" name="cv" value="6">B
+    </div></div>
+    <div class="course"><label>Software Project Management (3 cr):</label><div class="grade-options">
+      <input type="radio" name="spm" value="10">O
+      <input type="radio" name="spm" value="9">A+
+      <input type="radio" name="spm" value="8">A
+      <input type="radio" name="spm" value="7">B+
+      <input type="radio" name="spm" value="6">B
+    </div></div>
+    <div class="course"><label>Mobile App Development (3 cr):</label><div class="grade-options">
+      <input type="radio" name="mad" value="10">O
+      <input type="radio" name="mad" value="9">A+
+      <input type="radio" name="mad" value="8">A
+      <input type="radio" name="mad" value="7">B+
+      <input type="radio" name="mad" value="6">B
+    </div></div>
+    <div class="course"><label>Environmental Impact Assessment (3 cr):</label><div class="grade-options">
+      <input type="radio" name="eia" value="10">O
+      <input type="radio" name="eia" value="9">A+
+      <input type="radio" name="eia" value="8">A
+      <input type="radio" name="eia" value="7">B+
+      <input type="radio" name="eia" value="6">B
+    </div></div>
+    <div class="course"><label>Core Course Project (1 cr):</label><div class="grade-options">
+      <input type="radio" name="ccp" value="10">O
+      <input type="radio" name="ccp" value="9">A+
+      <input type="radio" name="ccp" value="8">A
+      <input type="radio" name="ccp" value="7">B+
+      <input type="radio" name="ccp" value="6">B
+    </div></div>
+    <div class="course"><label>Cloud & Distributed Computing (3 cr):</label><div class="grade-options">
+      <input type="radio" name="cdc" value="10">O
+      <input type="radio" name="cdc" value="9">A+
+      <input type="radio" name="cdc" value="8">A
+      <input type="radio" name="cdc" value="7">B+
+      <input type="radio" name="cdc" value="6">B
+    </div></div>
+    <div class="course"><label>Software Quality Management (3 cr):</label><div class="grade-options">
+      <input type="radio" name="sqm" value="10">O
+      <input type="radio" name="sqm" value="9">A+
+      <input type="radio" name="sqm" value="8">A
+      <input type="radio" name="sqm" value="7">B+
+      <input type="radio" name="sqm" value="6">B
+    </div></div>
   </div>
 
   <button onclick="calculateCGPA()">Calculate CGPA</button>
-
-  <div class="results" id="result"></div>
+  <div class="results" id="result">Your CGPA will be displayed here.</div>
 
   <script>
-    const credits = {
-      // Sem 5
-      AD2501: 3,
-      AD2502: 3,
-      AD2503: 4,
-      // Sem 6
-      genai: 3,
-      cv: 3,
-      spm: 3,
-      ccp: 1
+    // Credit mapping for all courses
+    const courseCredits = {
+      'HS2101':3,'MA2102':4,'PH2103':3,'CH2104':3,'AD2105':3,
+      'ES2106':3,'BS2107':2,'AD2108':2,'HS2109':1,
+      'MA2201':4,'HS2201':3,'AD2201':4,'AD2202':4,'AD2203':4,
+      'ME2211':2,'ES2201':1,
+      'MA2301':4,'AD2301':4,'AD2302':4,'AD2303':4,'AD2304':4,
+      'AD2305':4,'AD2301P':1,'HS2301':1,
+      'MA2401':3,'AD2401':4,'AD2402':4,'AD2403':4,'AD2404':4,
+      'AD2405':4,'AD2401P':1,'HS2401':1,
+      'AD2501':3,'HS2703':3,'ME2701':3,'AD2502':3,'AD2503':4,
+      'AD2504':4,'AD2V15':3,'AD2V13':3,'AD2V31':3,'ES2501':1,
+      'AD2505':1,
+      'genai':3,'cv':3,'spm':3,'mad':3,'eia':3,'ccp':1,'cdc':3,'sqm':3
     };
 
-    const semCredits = {
-      gpa1: 24,
-      gpa2: 25,
-      gpa3: 26,
-      gpa4: 26
-    };
+    // Fixed credit weights for GPA of Sem 1–4
+    const gpaCredits = { gpa1:24, gpa2:25, gpa3:26, gpa4:26 };
 
     function calculateCGPA() {
       let totalCredits = 0;
-      let totalGradePoints = 0;
+      let totalPoints = 0;
 
-      // Semesters 1–4 GPA inputs
-      for (let sem in semCredits) {
-        const gpaVal = parseFloat(document.getElementById(sem).value);
-        if (!isNaN(gpaVal)) {
-          totalCredits += semCredits[sem];
-          totalGradePoints += gpaVal * semCredits[sem];
+      // Add GPA inputs weighted
+      for (let sem in gpaCredits) {
+        const val = parseFloat(document.getElementById(sem).value);
+        if (!isNaN(val)) {
+          totalCredits += gpaCredits[sem];
+          totalPoints += val * gpaCredits[sem];
         }
       }
 
-      // Sem 5–6 subject grade inputs
-      for (let subject in credits) {
-        const selected = document.querySelector(`input[name="${subject}"]:checked`);
-        if (selected) {
-          const grade = parseInt(selected.value);
-          totalCredits += credits[subject];
-          totalGradePoints += grade * credits[subject];
+      // Add grades for Sem 5 & 6
+      for (let code in courseCredits) {
+        const el = document.querySelector(`input[name="${code}"]:checked`);
+        if (el) {
+          const grade = parseInt(el.value);
+          const cr = courseCredits[code];
+          totalCredits += cr;
+          totalPoints += grade * cr;
         }
       }
 
-      const resultBox = document.getElementById("result");
+      const resultEl = document.getElementById('result');
       if (totalCredits === 0) {
-        resultBox.innerText = "Please enter at least one GPA or grade.";
-        resultBox.style.color = "red";
-        return;
+        resultEl.innerText = 'Please enter GPA or grades.';
+        resultEl.style.color = 'red';
+      } else {
+        const cgpa = (totalPoints / totalCredits).toFixed(2);
+        resultEl.innerText = `🎓 Your CGPA: ${cgpa}`;
+        resultEl.style.color = 'green';
       }
-
-      const cgpa = (totalGradePoints / totalCredits).toFixed(2);
-      resultBox.innerText = `🎓 Your CGPA is: ${cgpa}`;
-      resultBox.style.color = "green";
     }
   </script>
+
 </body>
 </html>
